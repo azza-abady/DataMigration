@@ -6,7 +6,7 @@
         <a routerLink="/dashboard/home" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-fw fa-dashboard"></i> Dashboard
         </a>
-        <a [routerLink]="['chart']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+      <!--  <a [routerLink]="['chart']" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-fw fa-bar-chart-o"></i> Charts
         </a>
         <a [routerLink]="['tables']" [routerLinkActive]="['router-link-active']" class="list-group-item">
@@ -23,23 +23,68 @@
         </a>
         <a [routerLink]="['components']" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-th-list"></i> &nbsp;Component
-        </a>
+        </a>-->
         <div class="nested-menu">
-            <a class="list-group-item" (click)="addExpandClass('pages')">
-                <span><i class="fa fa-plus"></i> &nbsp; Menu</span>
+            <a class="list-group-item" (click)="addExpandClass('admin')">
+                <span><i class="fa fa-th-list"></i> &nbsp; Administration</span>
             </a>
-            <li class="nested" [ngClass]="{'expand' : showMenu === 'pages' }">
+            <li class="nested" [ngClass]="{'expand' : showMenu === 'admin' }">
                 <ul class="submenu">
                     <li>
-                        <a href><span>Submenu</span></a>
+                        <a href><span>Create Role</span></a>
                     </li>
                     <li>
-                        <a href><span>Submenu</span></a>
+                        <a href><span>Create user</span></a>
                     </li>
                 </ul>
             </li>
         </div>
-        <a [routerLink]="['blankpage']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+		<div class="nested-menu">
+            <a class="list-group-item" (click)="addExpandClass('conf')">
+                <span><i class="fa fa-th-list"></i> &nbsp; Configuration</span>
+            </a>
+            <li class="nested" [ngClass]="{'expand' : showMenu === 'conf' }">
+                <ul class="submenu">
+                    <li>
+                        <a href><span>Create DB</span></a>
+                    </li>
+                    <li>
+                        <a href><span>Create Comparison</span></a>
+                    </li>
+                </ul>
+            </li>
+        </div>
+		<div class="nested-menu">
+            <a class="list-group-item" (click)="addExpandClass('exec')">
+                <span><i class="fa fa-th-list"></i> &nbsp; Execution</span>
+            </a>
+            <li class="nested" [ngClass]="{'expand' : showMenu === 'exec' }">
+                <ul class="submenu">
+                    <li>
+                        <a href><span>Execute Comparison</span></a>
+                    </li>
+                    <li>
+                        <a href><span>Schedule Comparison</span></a>
+                    </li>
+                </ul>
+            </li>
+        </div>
+		<div class="nested-menu">
+            <a class="list-group-item" (click)="addExpandClass('report')">
+                <span><i class="fa fa-th-list"></i> &nbsp; Reports</span>
+            </a>
+            <li class="nested" [ngClass]="{'expand' : showMenu === 'report' }">
+                <ul class="submenu">
+                    <li>
+                        <a href><span>Detailed Report</span></a>
+                    </li>
+                    <li>
+                        <a href><span>Summary Report</span></a>
+                    </li>
+                </ul>
+            </li>
+        </div>
+       <a [routerLink]="['blankpage']" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-file-o"></i> &nbsp;BlankPage
         </a>
         <a class="list-group-item more-themes" href="http://www.strapui.com/" >
