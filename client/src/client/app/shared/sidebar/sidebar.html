@@ -25,10 +25,10 @@
             <i class="fa fa-th-list"></i> &nbsp;Component
         </a>-->
         <div class="nested-menu">
-            <a class="list-group-item" (click)="addExpandClass('admin')">
-                <span><i class="fa fa-th-list"></i> &nbsp; Administration</span>
+            <a class="list-group-item" (click)="expandAdmin('admin')">
+                <span><i class="fa fa-fw fa-cog"></i> &nbsp; Administration</span>
             </a>
-            <li class="nested" [ngClass]="{'expand' : showMenu === 'admin' }">
+            <li class="nested" [ngClass]="{'expand' : showAdmin === 'admin' }">
                 <ul class="submenu">
                     <li>
                         <a href><span>Create Role</span></a>
@@ -40,10 +40,10 @@
             </li>
         </div>
 		<div class="nested-menu">
-            <a class="list-group-item" (click)="addExpandClass('conf')">
-                <span><i class="fa fa-th-list"></i> &nbsp; Configuration</span>
+            <a class="list-group-item" (click)="expandConf('conf')">
+                <span><i class="fa fa-fw fa-wrench"></i> &nbsp; Configuration</span>
             </a>
-            <li class="nested" [ngClass]="{'expand' : showMenu === 'conf' }">
+            <li class="nested" [ngClass]="{'expand' : showConf === 'conf' }">
                 <ul class="submenu">
                     <li>
                         <a href><span>Create DB</span></a>
@@ -55,10 +55,10 @@
             </li>
         </div>
 		<div class="nested-menu">
-            <a class="list-group-item" (click)="addExpandClass('exec')">
-                <span><i class="fa fa-th-list"></i> &nbsp; Execution</span>
+            <a class="list-group-item" (click)="expandExec('exec')">
+                <span><i class="fa fa-fw fa-edit"></i> &nbsp; Execution</span>
             </a>
-            <li class="nested" [ngClass]="{'expand' : showMenu === 'exec' }">
+            <li class="nested" [ngClass]="{'expand' : showExec === 'exec' }">
                 <ul class="submenu">
                     <li>
                         <a href><span>Execute Comparison</span></a>
@@ -70,10 +70,10 @@
             </li>
         </div>
 		<div class="nested-menu">
-            <a class="list-group-item" (click)="addExpandClass('report')">
-                <span><i class="fa fa-th-list"></i> &nbsp; Reports</span>
+            <a class="list-group-item" (click)="expandReport('report')">
+                <span><i class="fa fa-fw fa-table"></i> &nbsp; Reports</span>
             </a>
-            <li class="nested" [ngClass]="{'expand' : showMenu === 'report' }">
+            <li class="nested" [ngClass]="{'expand' : showReport === 'report' }">
                 <ul class="submenu">
                     <li>
                         <a href><span>Detailed Report</span></a>
@@ -84,11 +84,11 @@
                 </ul>
             </li>
         </div>
-       <a [routerLink]="['blankpage']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+       <!--<a [routerLink]="['blankpage']" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-file-o"></i> &nbsp;BlankPage
         </a>
         <a class="list-group-item more-themes" href="http://www.strapui.com/" >
             More Themes
-        </a>
+        </a>-->
     </ul>
 </nav>

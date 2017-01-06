@@ -1,6 +1,6 @@
 @import "../bootstrap/bootstrap.scss";
 
-$topnav-background-color: #ffff99
+$topnav-background-color: #fffdd8
 ;
 
 #toggle-sidebar{
@@ -382,11 +382,13 @@ a:hover{
     }
     ul.submenu {
         height: 0;
+	visibility: hidden;
     }
     & .expand {
         ul.submenu {
             list-style-type: none;
             height: auto;
+	    visibility: visible;
             li {
                 a {
                     color: #222222;
