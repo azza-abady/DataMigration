@@ -31,10 +31,10 @@
             <li class="nested" [ngClass]="{'expand' : showAdmin === 'admin' }">
                 <ul class="submenu">
                     <li>
-                        <a href><span>Create Role</span></a>
+                        <a [routerLink]="['role']" [routerLinkActive]="['router-link-active']"><span>Create Role</span></a>
                     </li>
                     <li>
-                        <a href><span>Create user</span></a>
+                        <a [routerLink]="['user']" [routerLinkActive]="['router-link-active']"><span>Create user</span></a>
                     </li>
                 </ul>
             </li>
@@ -46,10 +46,10 @@
             <li class="nested" [ngClass]="{'expand' : showConf === 'conf' }">
                 <ul class="submenu">
                     <li>
-                        <a href><span>Create DB</span></a>
+                        <a [routerLink]="['db']" [routerLinkActive]="['router-link-active']"><span>Create DB</span></a>
                     </li>
                     <li>
-                        <a href><span>Create Comparison</span></a>
+                        <a [routerLink]="['comparison']" [routerLinkActive]="['router-link-active']"><span>Create Comparison</span></a>
                     </li>
                 </ul>
             </li>
@@ -61,10 +61,10 @@
             <li class="nested" [ngClass]="{'expand' : showExec === 'exec' }">
                 <ul class="submenu">
                     <li>
-                        <a href><span>Execute Comparison</span></a>
+                        <a [routerLink]="['execute']" [routerLinkActive]="['router-link-active']"><span>Execute Comparison</span></a>
                     </li>
                     <li>
-                        <a href><span>Schedule Comparison</span></a>
+                        <a [routerLink]="['schedule']" [routerLinkActive]="['router-link-active']"><span>Schedule Comparison</span></a>
                     </li>
                 </ul>
             </li>
@@ -76,10 +76,10 @@
             <li class="nested" [ngClass]="{'expand' : showReport === 'report' }">
                 <ul class="submenu">
                     <li>
-                        <a href><span>Detailed Report</span></a>
+                        <a [routerLink]="['detailed']" [routerLinkActive]="['router-link-active']"><span>Detailed Report</span></a>
                     </li>
                     <li>
-                        <a href><span>Summary Report</span></a>
+                        <a [routerLink]="['summary']" [routerLinkActive]="['router-link-active']"><span>Summary Report</span></a>
                     </li>
                 </ul>
             </li>
