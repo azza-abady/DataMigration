@@ -7,12 +7,8 @@ import { ModalModule } from 'ng2-bootstrap/ng2-bootstrap';
 import { HomeModule } from './home/home.module';
 import { RoleModule } from './role/role.module';
 import { UserModule } from './user/user.module';
-import { DBModule } from './db/db.module';
-import { ComparisonModule } from './comparison/comparison.module';
-import { ExecuteModule } from './execute/execute.module';
-import { ScheduleModule } from './schedule/schedule.module';
-import { DetailedModule } from './detailed/detailed.module';
-import { SummaryModule } from './summary/summary.module';
+import { ConfigurationModule } from './configuration/configuration.module';
+import { ExecutionModule } from './execution/execution.module';
 
 import { DashboardComponent } from './dashboard.component';
 
@@ -29,12 +25,8 @@ import {SidebarComponent} from '../shared/index';
     	HomeModule,
         RoleModule,
         UserModule,
-        DBModule,
-        ComparisonModule,
-    	ExecuteModule,
-        ScheduleModule,
-        DetailedModule,
-	SummaryModule
+        ConfigurationModule,
+    	ExecutionModule
     ],
     declarations: [DashboardComponent, TopNavComponent, SidebarComponent],
     exports: [DashboardComponent, TopNavComponent, SidebarComponent]

@@ -1,5 +1,5 @@
 /**
  * This barrel file provides the export for the lazy loaded BlankpageComponent.
  */
-export * from './detailed.component';
-export * from './detailed.routes';
+export * from './configuration.component';
+export * from './configuration.routes';

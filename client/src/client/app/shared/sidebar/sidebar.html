@@ -6,24 +6,7 @@
         <a routerLink="/dashboard/home" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-fw fa-dashboard"></i> Dashboard
         </a>
-      <!--  <a [routerLink]="['chart']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-fw fa-bar-chart-o"></i> Charts
-        </a>
-        <a [routerLink]="['tables']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-fw fa-table"></i> Tables
-        </a>
-        <a [routerLink]="['forms']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-fw fa-edit"></i> Forms
-        </a>
-        <a [routerLink]="['element']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-fw fa-desktop"></i> Bootstrap Elements
-        </a>
-        <a [routerLink]="['grid']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-fw fa-wrench"></i> Bootstrap Grid
-        </a>
-        <a [routerLink]="['components']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-th-list"></i> &nbsp;Component
-        </a>-->
+
         <div class="nested-menu">
             <a class="list-group-item" (click)="expandAdmin('admin')">
                 <span><i class="fa fa-fw fa-cog"></i> &nbsp; Administration</span>
@@ -39,56 +22,14 @@
                 </ul>
             </li>
         </div>
-		<div class="nested-menu">
-            <a class="list-group-item" (click)="expandConf('conf')">
-                <span><i class="fa fa-fw fa-wrench"></i> &nbsp; Configuration</span>
-            </a>
-            <li class="nested" [ngClass]="{'expand' : showConf === 'conf' }">
-                <ul class="submenu">
-                    <li>
-                        <a [routerLink]="['db']" [routerLinkActive]="['router-link-active']"><span>Create DB</span></a>
-                    </li>
-                    <li>
-                        <a [routerLink]="['comparison']" [routerLinkActive]="['router-link-active']"><span>Create Comparison</span></a>
-                    </li>
-                </ul>
-            </li>
-        </div>
-		<div class="nested-menu">
-            <a class="list-group-item" (click)="expandExec('exec')">
-                <span><i class="fa fa-fw fa-edit"></i> &nbsp; Execution</span>
-            </a>
-            <li class="nested" [ngClass]="{'expand' : showExec === 'exec' }">
-                <ul class="submenu">
-                    <li>
-                        <a [routerLink]="['execute']" [routerLinkActive]="['router-link-active']"><span>Execute Comparison</span></a>
-                    </li>
-                    <li>
-                        <a [routerLink]="['schedule']" [routerLinkActive]="['router-link-active']"><span>Schedule Comparison</span></a>
-                    </li>
-                </ul>
-            </li>
-        </div>
-		<div class="nested-menu">
-            <a class="list-group-item" (click)="expandReport('report')">
-                <span><i class="fa fa-fw fa-table"></i> &nbsp; Reports</span>
-            </a>
-            <li class="nested" [ngClass]="{'expand' : showReport === 'report' }">
-                <ul class="submenu">
-                    <li>
-                        <a [routerLink]="['detailed']" [routerLinkActive]="['router-link-active']"><span>Detailed Report</span></a>
-                    </li>
-                    <li>
-                        <a [routerLink]="['summary']" [routerLinkActive]="['router-link-active']"><span>Summary Report</span></a>
-                    </li>
-                </ul>
-            </li>
-        </div>
-       <!--<a [routerLink]="['blankpage']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-file-o"></i> &nbsp;BlankPage
+
+        <a [routerLink]="['configuration']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-fw fa-wrench"></i> Configuration
         </a>
-        <a class="list-group-item more-themes" href="http://www.strapui.com/" >
-            More Themes
-        </a>-->
+
+        <a [routerLink]="['execution']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-fw fa-edit"></i> Execution
+        </a>
+
     </ul>
 </nav>
