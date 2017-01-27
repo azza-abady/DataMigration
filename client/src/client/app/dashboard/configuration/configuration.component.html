@@ -1,1 +1,148 @@
-configuration for comparison
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="row">
+        <div class="col-xl-12">
+            <ol class="breadcrumb">
+                <li>
+                    <i class="fa fa-dashboard"></i>  <a href="Javascript:void(0)" routerLink="/dashboard/home">Dashboard</a>
+                </li>
+                <li class="active">
+                    <i class="fa fa-wrench"></i> Configuration
+                </li>
+            </ol>
+        </div>
+    </div>
+    <!-- /.row -->
+    <div class="card card-default">
+     <div class="row">
+         <div class="col-xl-12">
+                <div class="card-block">
+                    <div class="form-group">
+        			    <div class="row">
+        			         <div class="col-xl-6">
+                        	    		<label>Edit Comparison:</label>
+        			         </div>
+        			         <div class="col-xl-6">
+        			         </div>
+        			    </div>
+        			    <div class="row">
+        			         <div class="col-xl-6">
+                        	    	<select class="form-control">
+                        	        	<option>Comparison 1</option>
+                        	        	<option>Comparison 2</option>
+                        	        	<option>Comparison 3</option>
+                        	        	<option>Comparison 4</option>
+                         	        	<option>Comparison 5</option>
+                         	   	   </select>
+        			         </div>
+
+        				    <div class="col-xl-1"></div>
+
+               				 <div class="col-xl-4">
+                        		     <button type="button" class="btn btn-primary">Create new Comparison</button>
+                			 </div>
+
+                			 <div class="col-xl-1"></div>
+        			    </div>
+                 	</div>
+                 </div>
+         </div>
+     </div>
+    </div>
+    <!-- /.row -->
+
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card card-default">
+                <div class="card-block">
+			<tabset>
+				<tab heading="Reference Data">
+					REF
+				</tab>
+
+				<tab *ngFor="let child of childItems; let in=index" [active]="child.active"  (select)="createTab(in)">
+                    <template *ngIf="child.show" tabHeading>
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                    </template>
+                    <template *ngIf="!child.show" tabHeading>
+                        {{child.name}}
+                        <i class="fa fa-times" aria-hidden="true" (click)="clicked(in)"></i>
+                    </template>
+                    <div class="row" style="margin: 10px;"></div>
+                    <div class="row">
+                        <div class="col-xl-1"></div>
+
+                        <div class="col-xl-4">
+                                <label>DB type</label>
+                        </div>
+
+                        <div class="col-xl-2"></div>
+                        
+                        <div class="col-xl-4">
+                                <label>Name</label>
+                        </div>
+
+                        <div class="col-xl-1"></div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-1"></div>
+
+                        <div class="col-xl-4">
+                                <select class="form-control">
+                                    <option>Oracle</option>
+                                    <option>SQL</option>
+                                    <option>MySQL</option>
+                               </select>
+                        </div>
+
+                        <div class="col-xl-2"></div>
+
+                        <div class="col-xl-4">
+                                <input class="form-control" [(ngModel)]="child.name">
+                        </div>
+
+                        <div class="col-xl-1"></div>
+                    </div>
+
+					<form action="">
+
+                        <div class="row" style="margin-top: 20px">
+                            <div class="col-xl-1"></div>
+                            <div class="col-xl-4">
+       					        <input type="radio" [(ngModel)]="child.urlType"  name="child.name" value="urlString"  (change)="child.act = true; child.act2 = false">URL String
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-top: 10px">
+                            <div class="col-xl-1"></div>
+                            <div class="col-xl-10">
+                                <input class="form-control" placeholder="URL String" [disabled]="child.act2">
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-top: 20px">
+                            <div class="col-xl-1"></div>
+                            <div class="col-xl-4">
+        				        <input type="radio" [(ngModel)]="child.urlType"  name="child.name" value="sepString"  (change)="child.act2 = true; child.act = false">Generate URL
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-top: 10px">
+                            <div class="col-xl-1"></div>
+                            <div class="col-xl-10">
+                                <input class="form-control" placeholder="URL String" [disabled]="child.act">
+                            </div>
+                        </div>
+					</form>
+				</tab>
+
+			</tabset>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+
+</div>
