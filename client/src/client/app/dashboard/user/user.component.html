@@ -1,1 +1,49 @@
-user
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="row">
+        <div class="col-lg-12">
+            <ol class="breadcrumb">
+                <li>
+                    <i class="fa fa-dashboard"></i><a href="Javascript:void(0)" routerLink="/dashboard/home">Dashboard</a>
+                </li>
+				<li> 
+                    <i class="fa fa-fw fa-cog"></i><a href ="Javascript:void(0)" routerLink="/dashboard/home">Adminstration</a>
+                </li>
+                <li class="active">
+                    <i></i>Users
+                </li>
+            </ol>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <div class="row">
+        <div class="col-lg-6">
+            <form role="form">
+                <fieldset class="form-group">
+                    <label for="userInput">User Name</label>
+                    <input id="userInput" type="text" class="form-control" placeholder="Enter User Name">
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label for="passwordInput">Password</label>
+                    <input id="passwordInput" class="form-control" type="password" placeholder="Enter Password">
+                </fieldset>
+
+                <div class="form-group">
+                    <label>Roles</label>
+                    <select class="form-control">
+						<option>Select Role</option>
+                        <option>Admin</option>
+                        <option>User</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Save User</button>
+                <button type="reset" class="btn btn-secondary">Cancel</button>
+            </form>
+        </div>
+    </div>
+    <!-- /.row -->
+
+</div>

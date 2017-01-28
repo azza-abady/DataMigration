@@ -1,1 +1,58 @@
-role
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="row">
+        <div class="col-lg-12">
+            <ol class="breadcrumb">
+                <li>
+                    <i class="fa fa-dashboard"></i> <a href="Javascript:void(0)" routerLink="/dashboard/home">Dashboard</a>
+                </li>
+				<li> 
+                    <i class="fa fa-fw fa-cog"></i> <a href ="Javascript:void(0)" routerLink="/dashboard/home">Adminstration</a>
+                </li>
+                <li class="active">
+                    <i></i> Roles
+                </li>
+            </ol>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <div class="row">
+        <div class="col-lg-6">
+            <form role="form">
+                <fieldset class="form-group">
+                    <label for="roleInput">Role Name</label>
+                    <input id="roleInput" type="text" class="form-control" required minlength="4" maxlength="24" placeholder="Enter Role Name">
+                </fieldset>
+                <div class="form-group">
+                    <label>Pages</label>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value="rolePage"> Create Role
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value="userPage"> Create User
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value="configurationPage"> Configuration
+                        </label>
+                    </div>
+					<div class="checkbox">
+                        <label>
+                            <input type="checkbox" value="executionPage"> Execution
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Save Role</button>
+                <button type="reset" class="btn btn-secondary">Cancel</button>
+            </form>
+        </div>
+    </div>
+    <!-- /.row -->
+
+</div>
