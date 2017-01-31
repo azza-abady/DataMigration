@@ -6,7 +6,7 @@
                 <li>
                     <i class="fa fa-dashboard"></i><a href="Javascript:void(0)" routerLink="/dashboard/home">Dashboard</a>
                 </li>
-				<li> 
+				<li>
                     <i class="fa fa-fw fa-cog"></i><a href ="Javascript:void(0)" routerLink="/dashboard/home">Adminstration</a>
                 </li>
                 <li class="active">
@@ -19,23 +19,24 @@
 
     <div class="row">
         <div class="col-lg-6">
+          <div [hidden]="submitted">
             <form role="form">
+              {{diagnostic}}
                 <fieldset class="form-group">
-                    <label for="userInput">User Name</label>
-                    <input id="userInput" type="text" class="form-control" placeholder="Enter User Name">
+                    <label for="name">User Name</label>
+                    <input id="name" type="text" class="form-control" required [(ngModel)]="model.name" name="name" placeholder="Enter User Name">
+
                 </fieldset>
 
                 <fieldset class="form-group">
-                    <label for="passwordInput">Password</label>
-                    <input id="passwordInput" class="form-control" type="password" placeholder="Enter Password">
+                    <label for="passwrd">Password</label>
+                    <input id="passwrd" class="form-control" type="password" [(ngModel)]="model.passwrd" name="passwrd" required placeholder="Enter Password">
                 </fieldset>
 
                 <div class="form-group">
                     <label>Roles</label>
-                    <select class="form-control">
-						<option>Select Role</option>
-                        <option>Admin</option>
-                        <option>User</option>
+                    <select id="role" [(ngModel)]="model.role" name="role" required class="form-control">
+						          <option *ngFor="let role of roles" [value]="role">{{role}}</option>
                     </select>
                 </div>
 
