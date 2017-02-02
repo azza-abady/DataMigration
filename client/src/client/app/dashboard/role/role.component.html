@@ -6,7 +6,7 @@
                 <li>
                     <i class="fa fa-dashboard"></i> <a href="Javascript:void(0)" routerLink="/dashboard/home">Dashboard</a>
                 </li>
-				<li> 
+				<li>
                     <i class="fa fa-fw fa-cog"></i> <a href ="Javascript:void(0)" routerLink="/dashboard/home">Adminstration</a>
                 </li>
                 <li class="active">
@@ -19,33 +19,21 @@
 
     <div class="row">
         <div class="col-lg-6">
+            <div [hidden]="submitted">
             <form role="form">
+                {{diagnostic}}
                 <fieldset class="form-group">
                     <label for="roleInput">Role Name</label>
-                    <input id="roleInput" type="text" class="form-control" required minlength="4" maxlength="24" placeholder="Enter Role Name">
+                    <input id="name" type="text" class="form-control" required [(ngModel)]="role.name" name="name" #name="ngModel" placeholder="Enter Role Name">
+                    <div *ngIf="name.errors" class="alert alert-danger">
+                        <div [hidden]="!name.errors.required">Role Name is Required</div>
+                    </div>
                 </fieldset>
                 <div class="form-group">
                     <label>Pages</label>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" value="rolePage"> Create Role
-                        </label>
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" value="userPage"> Create User
-                        </label>
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" value="configurationPage"> Configuration
-                        </label>
-                    </div>
-					<div class="checkbox">
-                        <label>
-                            <input type="checkbox" value="executionPage"> Execution
-                        </label>
-                    </div>
+                    <select id="pages" multiple name="pages" class="form-control" [(ngModel)]="role.pages">
+                        <option *ngFor="let page of pages" [value]="page.value">{{page.display}}</option>
+                    </select>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Save Role</button>

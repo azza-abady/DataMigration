@@ -24,20 +24,28 @@
               {{diagnostic}}
                 <fieldset class="form-group">
                     <label for="name">User Name</label>
-                    <input id="name" type="text" class="form-control" required [(ngModel)]="model.name" name="name" placeholder="Enter User Name">
-
+                    <input id="name" type="text" class="form-control" required [(ngModel)]="user.name" name="name" #name="ngModel" placeholder="Enter User Name">
+                    <div *ngIf="name.errors" class="alert alert-danger">
+                        <div [hidden]="!name.errors.required">Name is Required</div>
+                    </div>
                 </fieldset>
 
                 <fieldset class="form-group">
                     <label for="passwrd">Password</label>
-                    <input id="passwrd" class="form-control" type="password" [(ngModel)]="model.passwrd" name="passwrd" required placeholder="Enter Password">
+                    <input id="passwrd" class="form-control" type="password" required [(ngModel)]="user.passwrd" name="passwrd" #passwrd="ngModel" placeholder="Enter Password">
+                    <div *ngIf="passwrd.errors" class="alert alert-danger">
+                        <div [hidden]="!passwrd.errors.required">Password is Required</div>
+                    </div>
                 </fieldset>
 
                 <div class="form-group">
                     <label>Roles</label>
-                    <select id="role" [(ngModel)]="model.role" name="role" required class="form-control">
+                    <select id="role" [(ngModel)]="user.role" name="role" required #role="ngModel" class="form-control">
 						          <option *ngFor="let role of roles" [value]="role">{{role}}</option>
                     </select>
+                    <div *ngIf="role.errors" class="alert alert-danger">
+                        <div [hidden]="!role.errors.required">Role is Required</div>
+                    </div>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Save User</button>
