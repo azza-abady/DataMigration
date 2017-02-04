@@ -14,6 +14,16 @@ export class ConfigurationComponent {
     public childstemp: any[];
     private size: number = this.childItems.length;
 
+    public tempObj: any = {name: 'Reference Data',
+				    urlTpe: 'tp',
+				    urlType: 'urlString',
+				    act:true,
+				    act2:false,
+				    act3:true,
+				    active:true,
+				    show:false
+				   };
+
     public createTab(index: number){
 
     	if(index == this.childItems.length -1){
@@ -35,6 +45,7 @@ export class ConfigurationComponent {
 				    urlType: 'urlString',
 				    act:true,
 				    act2:false,
+				    act3:true,
 				    active:true,
 				    show:false
 				   });
