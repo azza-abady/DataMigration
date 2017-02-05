@@ -3,12 +3,12 @@ import { User } from './user';
 
 @Component({
 	moduleId: module.id,
-    selector: 'user-page',
-    templateUrl: './user.component.html'
+    selector: 'usermanage-page',
+    templateUrl: './userManagement.component.html'
 })
 
-export class UserComponent {
 
+export class UserManagementComponent {
 roles = ['Admin', 'user','Admin2','user2'];
 
 user = new User('azza', 'azza', this.roles[0]);

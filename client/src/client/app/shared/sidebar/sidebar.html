@@ -7,7 +7,7 @@
             <i class="fa fa-fw fa-dashboard"></i> Dashboard
         </a>
 
-        <div class="nested-menu">
+        <!-- <div class="nested-menu">
             <a class="list-group-item" (click)="expandAdmin('admin')">
                 <span><i class="fa fa-fw fa-cog"></i> &nbsp; Administration</span>
             </a>
@@ -22,7 +22,10 @@
                 </ul>
             </li>
         </div>
-
+-->
+<a [routerLink]="['usermanagement']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+    <i class="fa fa-user"></i> User Management
+</a>
         <a [routerLink]="['configuration']" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-fw fa-wrench"></i> Configuration
         </a>

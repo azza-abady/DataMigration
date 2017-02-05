@@ -1,30 +1,62 @@
 <div class="container-fluid">
+
     <!-- Page Heading -->
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-xl-12">
             <ol class="breadcrumb">
                 <li>
-                    <i class="fa fa-dashboard"></i><a href="Javascript:void(0)" routerLink="/dashboard/home">Dashboard</a>
-                </li>
-				<li>
-                    <i class="fa fa-fw fa-cog"></i><a href ="Javascript:void(0)" routerLink="/dashboard/home">Adminstration</a>
+                    <i class="fa fa-dashboard"></i>  <a href="Javascript:void(0)" routerLink="/dashboard/home">Dashboard</a>
                 </li>
                 <li class="active">
-                    <i></i>Users
+                    <i class="fa fa-user"></i> User Management
                 </li>
             </ol>
         </div>
     </div>
     <!-- /.row -->
+    <div class="card card-default">
+     <div class="row">
+         <div class="col-xl-12">
+                <div class="card-block">
+                    <div class="form-group">
+
+        			    <div class="row">
+        			         <div class="col-xl-6">
+                        	    	<select class="form-control">
+                                  <<option>Select User to Edit</option>
+                                    <option>Tom</option>
+                        	        	<option>Andy</option>
+                        	        	<option>Emilia</option>
+                        	        	<option>nour</option>
+                         	        	<option>Rozline</option>
+                         	   	   </select>
+        			         </div>
+
+        				    <div class="col-xl-1"></div>
+
+               				 <div class="col-xl-4">
+                        		     <button type="button" class="btn btn-primary"><i class="fa fa-user-plus"></i> Create User</button>
+                			 </div>
+
+                			 <div class="col-xl-1"></div>
+        			    </div>
+                 	</div>
+                 </div>
+         </div>
+     </div>
+    </div>
+    <!-- /.row -->
+
 
     <div class="row">
-        <div class="col-lg-6">
+        <div class="col-xl-12">
+            <div class="card card-default">
+                <div class="card-block">
           <div [hidden]="submitted">
             <form role="form">
-              {{diagnostic}}
                 <fieldset class="form-group">
                     <label for="name">User Name</label>
-                    <input id="name" type="text" class="form-control" required [(ngModel)]="user.name" name="name" #name="ngModel" placeholder="Enter User Name">
+                    <input id="name" type="text" class="form-control" required  [(ngModel)]="user.name" name="name" #name="ngModel" placeholder="Enter User Name">
                     <div *ngIf="name.errors" class="alert alert-danger">
                         <div [hidden]="!name.errors.required">Name is Required</div>
                     </div>
@@ -53,6 +85,7 @@
             </form>
         </div>
     </div>
+</div>
+</div></div>
     <!-- /.row -->
-
 </div>

@@ -15,7 +15,7 @@ export class ProjectConfig extends SeedConfig {
   ];
   constructor() {
     super();
-    this.APP_TITLE = 'Data Comparison Tool';
+    this.APP_TITLE = 'Reconciler';
 
     /* Enable typeless compiler runs (faster) between typed compiler runs. */
     // this.TYPED_COMPILE_INTERVAL = 5;

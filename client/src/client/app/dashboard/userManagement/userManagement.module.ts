@@ -3,17 +3,17 @@ import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
 
-import { RoleComponent } from './role.component';
+import { UserManagementComponent } from './userManagement.component';
 
 @NgModule({
     imports: [
     RouterModule,
     BrowserModule,
     FormsModule
-	],
-    declarations: [RoleComponent],
-    bootstrap: [RoleComponent],
-    exports: [RoleComponent]
+    ],
+    declarations: [UserManagementComponent],
+    bootstrap: [UserManagementComponent],
+    exports: [UserManagementComponent]
 })
 
-export class RoleModule { }
+export class UserManagementModule { }
