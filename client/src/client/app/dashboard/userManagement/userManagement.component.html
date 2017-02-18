@@ -16,26 +16,21 @@
     <!-- /.row -->
     <div class="card card-default">
      <div class="row">
+
          <div class="col-xl-12">
                 <div class="card-block">
                     <div class="form-group">
-
         			    <div class="row">
         			         <div class="col-xl-6">
-                        	    	<select class="form-control">
-                                  <<option>Select User to Edit</option>
-                                    <option>Tom</option>
-                        	        	<option>Andy</option>
-                        	        	<option>Emilia</option>
-                        	        	<option>nour</option>
-                         	        	<option>Rozline</option>
-                         	   	   </select>
+                        	    	<select id="selectedUser" [(ngModel)]="selectedUser" type="User" class="form-control" (ngModelChange)="onChange()">
+                                  <option *ngFor="let user of users" [ngValue]="user">{{user.name}}</option>
+                         	   	  </select>
         			         </div>
 
         				    <div class="col-xl-1"></div>
 
                				 <div class="col-xl-4">
-                        		     <button type="button" class="btn btn-primary"><i class="fa fa-user-plus"></i> Create User</button>
+                        	 <button type="button" class="btn btn-primary" (click)="onClick()"><i class="fa fa-user-plus"></i> Create User</button>
                 			 </div>
 
                 			 <div class="col-xl-1"></div>
@@ -47,45 +42,77 @@
     </div>
     <!-- /.row -->
 
-
-    <div class="row">
-        <div class="col-xl-12">
-            <div class="card card-default">
-                <div class="card-block">
+<div class="card card-default" [hidden]="show">
+  <div class="row">
+    <div class="col-xl-12">
+        <div class="card-block">
           <div [hidden]="submitted">
             <form role="form">
-                <fieldset class="form-group">
+              <div class="row">
+              <div class="col-xl-6">
+
                     <label for="name">User Name</label>
-                    <input id="name" type="text" class="form-control" required  [(ngModel)]="user.name" name="name" #name="ngModel" placeholder="Enter User Name">
-                    <div *ngIf="name.errors" class="alert alert-danger">
+                    <input id="name" type="text" class="form-control" required maxlength="30" [(ngModel)]="user.name" name="name" #name="ngModel" placeholder="Enter User Name">
+                    <div *ngIf="name.touched && name.errors" class="alert alert-danger">
                         <div [hidden]="!name.errors.required">Name is Required</div>
                     </div>
-                </fieldset>
-
-                <fieldset class="form-group">
-                    <label for="passwrd">Password</label>
+              </div>
+              </div>
+            <div class="row">
+              <div class="col-xl-6">
+                    <br/><label for="passwrd">Password</label>
                     <input id="passwrd" class="form-control" type="password" required [(ngModel)]="user.passwrd" name="passwrd" #passwrd="ngModel" placeholder="Enter Password">
-                    <div *ngIf="passwrd.errors" class="alert alert-danger">
+                    <div *ngIf="passwrd.touched && passwrd.errors" class="alert alert-danger">
                         <div [hidden]="!passwrd.errors.required">Password is Required</div>
                     </div>
-                </fieldset>
-
-                <div class="form-group">
-                    <label>Roles</label>
-                    <select id="role" [(ngModel)]="user.role" name="role" required #role="ngModel" class="form-control">
-						          <option *ngFor="let role of roles" [value]="role">{{role}}</option>
-                    </select>
-                    <div *ngIf="role.errors" class="alert alert-danger">
-                        <div [hidden]="!role.errors.required">Role is Required</div>
-                    </div>
                 </div>
+              </div>
+              <div class="row">
+                  <div class="col-xl-6">
+                    <label>User Privilege</label><br/>
+                    <div class="checkbox">
+                        <label>
+                          <input type="checkbox" name="usrMang" [(ngModel)]="user.usrMang" #usrMang="ngModel"> User Management
+                        </label>
+                      </div>
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" name="conf" [(ngModel)]="user.conf" #conf="ngModel" (ngModelChange)="onChecked()">
+                          <button type="button" [disabled]="disabledConfMenu" (click)="onConfChange()" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span> <span class="caret">Configuration</span></button>
+                          <div *ngFor="let confComp of confComps" [hidden]="compOfConf">
+                            <label>
+                              <input type="checkbox" name="confComp" value="confComp" (ngModelChange)="addCompToUser()"> {{confComp}}
+                            </label>
+                          </div>
+                        </label>
+                      </div>
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox" name="exec" [(ngModel)]="user.exec" #exec="ngModel" (ngModelChange)="onChecked()">
+                            <button type="button" [disabled]="disabledExecMenu" (click)="onExecChange()" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span> <span class="caret">Execution</span></button>
+                            <div *ngFor="let execComp of execComps" [hidden]="compOfExec">
+                              <label>
+                                <input type="checkbox" name="execComp" value="execComp"> {{execComp}}
+                              </label>
+                            </div>
+                          </label>
+                        </div>
 
+
+
+                      </div>
+                    </div>
+
+
+                    <div class="row">
+                      <div class="col-xl-6">
                 <button type="submit" class="btn btn-primary">Save User</button>
-                <button type="reset" class="btn btn-secondary">Cancel</button>
-            </form>
+                <button type="reset" class="btn btn-secondary">Cancel</button></div></div>
+              </form>
+            </div>
+          </div>
         </div>
     </div>
-</div>
-</div></div>
+  </div>
     <!-- /.row -->
 </div>
