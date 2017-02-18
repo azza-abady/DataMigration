@@ -13,7 +13,7 @@ import {
 		TabsModule,
 		FormsModule,
 		CommonModule
-	     ],
+	],
     declarations: [ConfigurationComponent],
     exports: [ConfigurationComponent]
 })

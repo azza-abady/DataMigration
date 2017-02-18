@@ -21,7 +21,7 @@
                     <div class="form-group">
         			    <div class="row">
         			         <div class="col-xl-6">
-                        	    		<label>Edit Comparison:</label>
+                        	    		<label>Recon. list</label>
         			         </div>
         			         <div class="col-xl-6">
         			         </div>
@@ -40,12 +40,47 @@
         				    <div class="col-xl-1"></div>
 
                				 <div class="col-xl-4">
-                        		     <button type="button" class="btn btn-primary">Create new Comparison</button>
+                        		     <button type="button" class="btn btn-primary">Create new Reconcilation</button>
                 			 </div>
 
                 			 <div class="col-xl-1"></div>
         			    </div>
                  	</div>
+                 </div>
+         </div>
+     </div>
+    </div>
+
+    <!-- /.row -->
+    <div class="card card-default">
+     <div class="row">
+         <div class="col-xl-12">
+                <div class="card-block">
+                    <div class="form-group">
+                        <div class="row">
+                             <div class="col-xl-6">
+                                        <label>Recon. Name</label>
+                             </div>
+                             <div class="col-xl-6">
+                             </div>
+                        </div>
+                        <div class="row">
+                             <div class="col-xl-6">
+                                    <input class="form-control" value="Recon. 1">
+                             </div>
+
+                            <div class="col-xl-1"></div>
+
+                            <div class="col-xl-1">
+                                <button type="button" class="btn btn-success">Save</button>
+                            </div>
+                            <div class="col-xl-1">
+                                <button type="button" class="btn btn-danger">Delete</button>
+                            </div>
+
+                             <div class="col-xl-3"></div>
+                        </div>
+                    </div>
                  </div>
          </div>
      </div>
@@ -57,133 +92,13 @@
             <div class="card card-default">
                 <div class="card-block">
 			<tabset>
-				<tab>
-                    <template tabHeading>
-                        {{tempObj.name}}
-                    </template>
-                    <div class="row" style="margin: 10px;"></div>
-                    <div class="row">
-                        <div class="col-xl-1"></div>
-
-                        <div class="col-xl-4">
-                                <label>DB type</label>
-                        </div>
-
-                        <div class="col-xl-2"></div>
-                        
-                        <div class="col-xl-4">
-                                <label>Name</label>
-                        </div>
-
-                        <div class="col-xl-1"></div>
-
-                    </div>
-                    <div class="row">
-                        <div class="col-xl-1"></div>
-
-                        <div class="col-xl-4">
-                                <select class="form-control">
-                                    <option>MySQL</option>
-                                    <option>ORACLE</option>
-                                    <option>DB2</option>
-                                    <option>Sybase</option>
-                               </select>
-                        </div>
-
-                        <div class="col-xl-2"></div>
-
-                        <div class="col-xl-4">
-                                <input class="form-control" [(ngModel)]="tempObj.name">
-                        </div>
-
-                        <div class="col-xl-1"></div>
-                    </div>
-
-                    <form action="">
-
-                        <div class="row" style="margin-top: 20px">
-                            <div class="col-xl-1"></div>
-                            <div class="col-xl-4">
-                                <input type="radio" [(ngModel)]="tempObj.urlType"  name="tempObj.name" value="urlString"  (change)="tempObj.act = true; tempObj.act2 = false; tempObj.act3 = true;">URL String
-                            </div>
-                        </div>
-
-                        <div class="row" style="margin-top: 10px">
-                            <div class="col-xl-1"></div>
-                            <div class="col-xl-10">
-                                <input class="form-control" placeholder="URL String" [disabled]="tempObj.act2">
-                            </div>
-                        </div>
-
-                        <div class="row" style="margin-top: 20px">
-                            <div class="col-xl-1"></div>
-                            <div class="col-xl-4">
-                                <input type="radio" [(ngModel)]="tempObj.urlType"  name="tempObj.name" value="sepString"  (change)="tempObj.act2 = true; tempObj.act = false; tempObj.act3 = true;">URL Parameters
-                            </div>
-                        </div>
-
-                        <div class="row" style="margin-top: 10px">
-                            <div class="col-xl-1"></div>
-                            <div class="col-xl-3">
-                                <input class="form-control" placeholder="Host Name or IP" [disabled]="tempObj.act">
-                            </div>
-                            <div class="col-xl-1"></div>
-                            <div class="col-xl-2">
-                                <input class="form-control" placeholder="Port Number" [disabled]="tempObj.act">
-                            </div>
-                            <div class="col-xl-1"></div>
-                            <div class="col-xl-3">
-                                <input class="form-control" placeholder="Database Name" [disabled]="tempObj.act">
-                            </div>
-                            <div class="col-xl-1"></div>
-                        </div>
-
-                        <div class="row" style="margin-top: 10px">
-                            <div class="col-xl-1"></div>
-                            <div class="col-xl-3">
-                                <input class="form-control" placeholder="User Name" [disabled]="tempObj.act">
-                            </div>
-                            <div class="col-xl-1"></div>
-                            <div class="col-xl-3">
-                                <input type="password" class="form-control" placeholder="Password" [disabled]="tempObj.act">
-                            </div>
-                            <div class="col-xl-4"></div>
-                        </div>
-
-                        <div class="row" style="margin-top: 20px">
-                            <div class="col-xl-1"></div>
-                            <div class="col-xl-4">
-                                <input type="radio" [(ngModel)]="tempObj.urlType"  name="tempObj.name" value="file"  (change)="tempObj.act3 = false; tempObj.act2 = true; tempObj.act = true;">Data File
-                            </div>
-                        </div>
-
-                        <div class="row" style="margin-top: 10px">
-                            <div class="col-xl-1"></div>
-                            <div class="col-xl-10">
-                                <input type="file" class="form-control" [disabled]="tempObj.act3">
-                            </div>
-                        </div>
-
-                        <div class="row" style="margin-top: 25px">
-                            <div class="col-xl-1"></div>
-                            <div class="col-xl-1">
-                                <button type="button" class="btn btn-success">Save</button>
-                            </div>
-                            <div class="col-xl-1">
-                                <button type="button" class="btn btn-danger">Delete</button>
-                            </div>
-                        </div>
-
-                    </form>
-                </tab>
-
-				<tab *ngFor="let child of childItems; let in=index" [active]="child.active"  (select)="createTab(in)">
-                    <template *ngIf="child.show" tabHeading>
+				<tab *ngFor="let child of childItems; let in=index" [active]="child.activeTab"  (select)="createTab(in)">
+                    <template *ngIf="child.showPlus" tabHeading>
                         <i class="fa fa-plus" aria-hidden="true"></i>
                     </template>
-                    <template *ngIf="!child.show" tabHeading>
+                    <template *ngIf="!child.showPlus" tabHeading>
                         {{child.name}}
-                        <i class="fa fa-times" aria-hidden="true" (click)="clicked(in)"></i>
+                        <i *ngIf="child.showX" class="fa fa-times" aria-hidden="true" (click)="deleteTab(in)"></i>
                     </template>
                     <div class="row" style="margin: 10px;"></div>
                     <div class="row">
@@ -206,11 +121,11 @@
                         <div class="col-xl-1"></div>
 
                         <div class="col-xl-4">
-                                <select class="form-control">
-                                    <option>MySQL</option>
-                                    <option>ORACLE</option>
-                                    <option>DB2</option>
-                                    <option>Sybase</option>
+                                <select class="form-control" [ngModel]="child.type" (ngModelChange)="changeType($event, in)">
+                                    <option value="1">MySQL</option>
+                                    <option value="2">ORACLE</option>
+                                    <option value="3">SQL Server</option>
+                                    <option value="4">File</option>
                                </select>
                         </div>
 
@@ -223,41 +138,27 @@
                         <div class="col-xl-1"></div>
                     </div>
 
-					<form action="">
+					<form action="" ngNoForm *ngIf="child.type != '4'">
 
                         <div class="row" style="margin-top: 20px">
                             <div class="col-xl-1"></div>
                             <div class="col-xl-4">
-       					        <input type="radio" [(ngModel)]="child.urlType"  name="child.name" value="urlString"  (change)="child.act = true; child.act2 = false; child.act3 = true;">URL String
-                            </div>
-                        </div>
-
-                        <div class="row" style="margin-top: 10px">
-                            <div class="col-xl-1"></div>
-                            <div class="col-xl-10">
-                                <input class="form-control" placeholder="URL String" [disabled]="child.act2">
-                            </div>
-                        </div>
-
-                        <div class="row" style="margin-top: 20px">
-                            <div class="col-xl-1"></div>
-                            <div class="col-xl-4">
-        				        <input type="radio" [(ngModel)]="child.urlType"  name="child.name" value="sepString"  (change)="child.act2 = true; child.act = false; child.act3 = true;">URL Parameters
+        				        <input type="radio" [(ngModel)]="child.urlType"  name="child.name" value="1">Connection String
                             </div>
                         </div>
 
                         <div class="row" style="margin-top: 10px">
                             <div class="col-xl-1"></div>
                             <div class="col-xl-3">
-                                <input class="form-control" placeholder="Host Name or IP" [disabled]="child.act">
+                                <input class="form-control" placeholder="Host Name/IP" [(ngModel)]="child.host" [disabled]="child.urlType != '1'">
                             </div>
                             <div class="col-xl-1"></div>
                             <div class="col-xl-2">
-                                <input class="form-control" placeholder="Port Number" [disabled]="child.act">
+                                <input class="form-control" placeholder="Port Number" [(ngModel)]="child.port" [disabled]="child.urlType != '1'">
                             </div>
                             <div class="col-xl-1"></div>
                             <div class="col-xl-3">
-                                <input class="form-control" placeholder="Database Name" [disabled]="child.act">
+                                <input class="form-control" placeholder="SID/Service Name" [(ngModel)]="child.service" [disabled]="child.urlType != '1'">
                             </div>
                             <div class="col-xl-1"></div>
                         </div>
@@ -265,11 +166,11 @@
                         <div class="row" style="margin-top: 10px">
                             <div class="col-xl-1"></div>
                             <div class="col-xl-3">
-                                <input class="form-control" placeholder="User Name" [disabled]="child.act">
+                                <input class="form-control" placeholder="User Name" [(ngModel)]="child.user" [disabled]="child.urlType != '1'">
                             </div>
                             <div class="col-xl-1"></div>
                             <div class="col-xl-3">
-                                <input type="password" class="form-control" placeholder="Password" [disabled]="child.act">
+                                <input type="password" class="form-control" placeholder="Password" [(ngModel)]="child.password" [disabled]="child.urlType != '1'">
                             </div>
                             <div class="col-xl-4"></div>
                         </div>
@@ -277,14 +178,14 @@
                         <div class="row" style="margin-top: 20px">
                             <div class="col-xl-1"></div>
                             <div class="col-xl-4">
-                                <input type="radio" [(ngModel)]="child.urlType"  name="child.name" value="file"  (change)="child.act3 = false; child.act2 = true; child.act = true;">Data File
+                                <input type="radio" [(ngModel)]="child.urlType"  name="child.name" value="2">DB link
                             </div>
                         </div>
 
                         <div class="row" style="margin-top: 10px">
                             <div class="col-xl-1"></div>
-                            <div class="col-xl-10">
-                                <input type="file" class="form-control" [disabled]="child.act3">
+                            <div class="col-xl-3">
+                                <input class="form-control" placeholder="DB link" [(ngModel)]="child.link" [disabled]="child.urlType != '2'">
                             </div>
                         </div>
 

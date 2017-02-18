@@ -8,21 +8,26 @@ import { Component } from '@angular/core';
 
 export class ConfigurationComponent { 
 
-    public childItems: any[] = [{
-			    show:true
-			   }];
+    public childItems: any[] = [
+    			   {
+    			    name: 'Reference Data',
+    			    type: '1',
+				    urlType: '1',
+				    host: '',
+				    port: '',
+				    service: '',
+				    user: '',
+				    password: '',
+				    link: '',
+				    activeTab:true
+				   },
+				   {
+			    	showPlus:true
+			   	   }
+	];
+	
     public childstemp: any[];
     private size: number = this.childItems.length;
-
-    public tempObj: any = {name: 'Reference Data',
-				    urlTpe: 'tp',
-				    urlType: 'urlString',
-				    act:true,
-				    act2:false,
-				    act3:true,
-				    active:true,
-				    show:false
-				   };
 
     public createTab(index: number){
 
@@ -36,29 +41,38 @@ export class ConfigurationComponent {
 			this.childItems = [];
 			for (var i = 0; i < this.childstemp.length-1; i++) {
 				let item: any = this.childstemp[i];
-				item.active = false;
+				item.activeTab = false;
 			    this.childItems.push(item);
 			}
 
-			this.childItems.push({name: 'Data ' + this.size,
-				    urlTpe: 'type' + this.size,
-				    urlType: 'urlString',
-				    act:true,
-				    act2:false,
-				    act3:true,
-				    active:true,
-				    show:false
+			this.childItems.push(
+				   {
+				    name: 'Data ' + this.size,
+				    type: '1',
+				    urlType: '1',
+				    host: '',
+				    port: '',
+				    service: '',
+				    user: '',
+				    password: '',
+				    link: '',
+				    activeTab:true,
+				    showX:true
 				   });
 
 		    this.size ++;
 
 			this.childItems.push({
-				    show:true
+				    showPlus:true
 				   });
 		}
     }
 
-    clicked(index: number) {
+    deleteTab(index: number) {
 		this.childItems.splice(index, 1);
+  	}
+
+  	changeType(value: string, index: number) {
+		this.childItems[index].type = value;
   	}
 }

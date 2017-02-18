@@ -1,1 +1,150 @@
-execution
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="row">
+        <div class="col-xl-12">
+            <ol class="breadcrumb">
+                <li>
+                    <i class="fa fa-dashboard"></i>  <a href="Javascript:void(0)" routerLink="/dashboard/home">Dashboard</a>
+                </li>
+                <li class="active">
+                    <i class="fa fa-edit"></i> Execution
+                </li>
+            </ol>
+        </div>
+    </div>
+    <!-- /.row -->
+    <div class="card card-default">
+     <div class="row">
+         <div class="col-xl-12">
+                <div class="card-block">
+                    <div class="form-group">
+        			    <div class="row">
+        			         <div class="col-xl-6">
+                        	    		<label>Recon. list</label>
+        			         </div>
+        			         <div class="col-xl-6">
+        			         </div>
+        			    </div>
+        			    <div class="row">
+        			        <div class="col-xl-6">
+                        	    	<select class="form-control">
+                        	        	<option>Comparison 1</option>
+                        	        	<option>Comparison 2</option>
+                        	        	<option>Comparison 3</option>
+                        	        	<option>Comparison 4</option>
+                         	        	<option>Comparison 5</option>
+                         	   	   </select>
+        			        </div>
+
+        			        <div class="col-xl-1"></div>
+
+                            <div class="col-xl-1">
+                                <button type="button" class="btn btn-success">Execute</button>
+                            </div>
+                            <div class="col-xl-1" style="margin-left: 20px;">
+                                <button type="button" class="btn btn-primary">Schedule</button>
+                            </div>
+
+                            <div class="col-xl-3"></div>
+        			    </div>
+                 	</div>
+                 </div>
+         </div>
+     </div>
+    </div>
+
+    <!-- /.row -->
+
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card card-default">
+                <div class="card-block">
+			<tabset>
+				<tab *ngFor="let child of childItems; let in=index">
+                    <template tabHeading>
+                        {{child.name}}
+                    </template>
+                    <div class="row" style="margin: 20px;"></div>
+
+					<form action="" ngNoForm *ngIf="child.type != '4'">
+
+                        <div class="row">
+                            <div class="col-xl-1"></div>
+                            <div class="col-xl-4">
+        				        <label>SELECT</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xl-1"></div>
+
+                            <div class="col-xl-6">
+                                <input class="form-control" placeholder="Columns">
+                            </div>
+
+                            <div class="col-xl-1"></div>
+                        </div>
+
+                        <div class="row" style="margin-top: 20px">
+                            <div class="col-xl-1"></div>
+                            <div class="col-xl-4">
+        				        <label>FROM</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xl-1"></div>
+
+                            <div class="col-xl-6">
+                                <input class="form-control" placeholder="Tables">
+                            </div>
+
+                            <div class="col-xl-1"></div>
+                        </div>
+
+                        <div class="row" style="margin-top: 20px">
+                            <div class="col-xl-1"></div>
+                            <div class="col-xl-4">
+        				        <label>WHERE</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xl-1"></div>
+
+                            <div class="col-xl-6">
+                                <input class="form-control" placeholder="Conditions">
+                            </div>
+
+                            <div class="col-xl-1"></div>
+                        </div>
+
+                        <div class="row" style="margin-top: 20px">
+                            <div class="col-xl-1"></div>
+                            <div class="col-xl-4">
+        				        <label>VALUES MAPING</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xl-1"></div>
+
+                            <div class="col-xl-6">
+                                <textarea rows="10" cols="50" (focus)="removePlaceholder()" (blur)="addPlaceholder()" #values></textarea>
+                            </div>
+
+                            <div class="col-xl-1"></div>
+                        </div>
+
+					</form>
+				</tab>
+
+			</tabset>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+
+</div>
