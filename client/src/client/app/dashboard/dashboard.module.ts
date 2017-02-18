@@ -7,7 +7,8 @@ import { ModalModule } from 'ng2-bootstrap/ng2-bootstrap';
 import { HomeModule } from './home/home.module';
 import { ConfigurationModule } from './configuration/configuration.module';
 import { ExecutionModule } from './execution/execution.module';
-import { UserManagementModule } from './userManagement/userManagement.module'
+import { UserManagementModule } from './userManagement/userManagement.module';
+import { ResetPasswordModule } from './userManagement/resetPassword/resetPassword.module';
 
 import { DashboardComponent } from './dashboard.component';
 
@@ -24,7 +25,8 @@ import {SidebarComponent} from '../shared/index';
     	HomeModule,
       ConfigurationModule,
     	ExecutionModule,
-      UserManagementModule
+      UserManagementModule,
+      ResetPasswordModule
     ],
     declarations: [DashboardComponent, TopNavComponent, SidebarComponent],
     exports: [DashboardComponent, TopNavComponent, SidebarComponent]
