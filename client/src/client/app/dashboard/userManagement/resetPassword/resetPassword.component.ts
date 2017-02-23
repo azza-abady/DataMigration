@@ -10,7 +10,7 @@ import { User } from '../user';
 
 export class ResetPasswordComponent {
 
-user =new User('gregr','ree',false,false,false,null,null);
+user =new User('gregr','ree',false,false,false,null,null,null);
 
 submitted = false;
 
