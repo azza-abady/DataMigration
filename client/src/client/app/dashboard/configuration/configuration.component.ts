@@ -13,6 +13,7 @@ export class ConfigurationComponent {
     			    name: 'Reference Data',
     			    type: '1',
 				    urlType: '1',
+				    inputType: '1',
 				    host: '',
 				    port: '',
 				    service: '',
@@ -50,6 +51,7 @@ export class ConfigurationComponent {
 				    name: 'Data ' + this.size,
 				    type: '1',
 				    urlType: '1',
+				    inputType: '1',
 				    host: '',
 				    port: '',
 				    service: '',
@@ -70,9 +72,5 @@ export class ConfigurationComponent {
 
     deleteTab(index: number) {
 		this.childItems.splice(index, 1);
-  	}
-
-  	changeType(value: string, index: number) {
-		this.childItems[index].type = value;
   	}
 }

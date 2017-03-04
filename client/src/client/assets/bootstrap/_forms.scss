@@ -234,7 +234,7 @@ input[type="radio"],
 input[type="checkbox"] {
   &:disabled,
   &.disabled {
-    cursor: $cursor-disabled;
+    //cursor: $cursor-disabled;
   }
 }
 // These classes are used directly on <label>s

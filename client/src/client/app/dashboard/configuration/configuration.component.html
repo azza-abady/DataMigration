@@ -100,92 +100,107 @@
                         {{child.name}}
                         <i *ngIf="child.showX" class="fa fa-times" aria-hidden="true" (click)="deleteTab(in)"></i>
                     </template>
-                    <div class="row" style="margin: 10px;"></div>
-                    <div class="row">
-                        <div class="col-xl-1"></div>
 
-                        <div class="col-xl-4">
-                                <label>DB type</label>
+                    <form action="" ngNoForm>
+
+                        <div class="row" style="margin: 10px;"></div>
+                        <div class="row">
+                            <div class="col-xl-1"></div>
+
+                            <div class="col-xl-4">
+                                    <label>Name</label>
+                            </div>
+
                         </div>
+                        <div class="row">
+                            <div class="col-xl-1"></div>
 
-                        <div class="col-xl-2"></div>
-                        
-                        <div class="col-xl-4">
-                                <label>Name</label>
+                            <div class="col-xl-4">
+                                    <input class="form-control" [(ngModel)]="child.name">
+                            </div>
+
                         </div>
-
-                        <div class="col-xl-1"></div>
-
-                    </div>
-                    <div class="row">
-                        <div class="col-xl-1"></div>
-
-                        <div class="col-xl-4">
-                                <select class="form-control" [ngModel]="child.type" (ngModelChange)="changeType($event, in)">
-                                    <option value="1">MySQL</option>
-                                    <option value="2">ORACLE</option>
-                                    <option value="3">SQL Server</option>
-                                    <option value="4">File</option>
-                               </select>
-                        </div>
-
-                        <div class="col-xl-2"></div>
-
-                        <div class="col-xl-4">
-                                <input class="form-control" [(ngModel)]="child.name">
-                        </div>
-
-                        <div class="col-xl-1"></div>
-                    </div>
-
-					<form action="" ngNoForm *ngIf="child.type != '4'">
 
                         <div class="row" style="margin-top: 20px">
                             <div class="col-xl-1"></div>
                             <div class="col-xl-4">
-        				        <input type="radio" [(ngModel)]="child.urlType"  name="child.name" value="1">Connection String
+                                <input type="radio" [(ngModel)]="child.inputType" name="{{child.name + ' inputType'}}" value="1">Input from Database
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin: 10px;">
+                            <div class="col-xl-2"></div>
+
+                            <div class="col-xl-4" style="padding-left: 0px;">
+                                    <label>DB type</label>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-2"></div>
+
+                            <div class="col-xl-4">
+                                    <select class="form-control" [(ngModel)]="child.type" [disabled]="child.inputType != '1'">
+                                        <option value="1">MySQL</option>
+                                        <option value="2">ORACLE</option>
+                                        <option value="3">SQL Server</option>
+                                   </select>
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-top: 20px">
+                            <div class="col-xl-2"></div>
+                            <div class="col-xl-4">
+        				        <input type="radio" [(ngModel)]="child.urlType"  name="{{child.name}}" value="1" [disabled]="child.inputType != '1'">Connection String
                             </div>
                         </div>
 
                         <div class="row" style="margin-top: 10px">
-                            <div class="col-xl-1"></div>
+                            <div class="col-xl-2"></div>
                             <div class="col-xl-3">
-                                <input class="form-control" placeholder="Host Name/IP" [(ngModel)]="child.host" [disabled]="child.urlType != '1'">
+                                <input class="form-control" placeholder="Host Name/IP" [(ngModel)]="child.host" [disabled]="child.urlType != '1' || child.inputType != '1'">
                             </div>
                             <div class="col-xl-1"></div>
                             <div class="col-xl-2">
-                                <input class="form-control" placeholder="Port Number" [(ngModel)]="child.port" [disabled]="child.urlType != '1'">
+                                <input class="form-control" placeholder="Port Number" [(ngModel)]="child.port" [disabled]="child.urlType != '1' || child.inputType != '1'">
                             </div>
                             <div class="col-xl-1"></div>
                             <div class="col-xl-3">
-                                <input class="form-control" placeholder="SID/Service Name" [(ngModel)]="child.service" [disabled]="child.urlType != '1'">
+                                <input class="form-control" placeholder="SID/Service Name" [(ngModel)]="child.service" [disabled]="child.urlType != '1' || child.inputType != '1'">
                             </div>
                             <div class="col-xl-1"></div>
                         </div>
 
                         <div class="row" style="margin-top: 10px">
-                            <div class="col-xl-1"></div>
+                            <div class="col-xl-2"></div>
                             <div class="col-xl-3">
-                                <input class="form-control" placeholder="User Name" [(ngModel)]="child.user" [disabled]="child.urlType != '1'">
+                                <input class="form-control" placeholder="User Name" [(ngModel)]="child.user" [disabled]="child.urlType != '1' || child.inputType != '1'">
                             </div>
                             <div class="col-xl-1"></div>
                             <div class="col-xl-3">
-                                <input type="password" class="form-control" placeholder="Password" [(ngModel)]="child.password" [disabled]="child.urlType != '1'">
+                                <input type="password" class="form-control" placeholder="Password" [(ngModel)]="child.password" [disabled]="child.urlType != '1' || child.inputType != '1'">
                             </div>
                             <div class="col-xl-4"></div>
                         </div>
 
                         <div class="row" style="margin-top: 20px">
-                            <div class="col-xl-1"></div>
+                            <div class="col-xl-2"></div>
                             <div class="col-xl-4">
-                                <input type="radio" [(ngModel)]="child.urlType"  name="child.name" value="2">DB link
+                                <input type="radio" [(ngModel)]="child.urlType"  name="{{child.name}}" value="2" [disabled]="child.inputType != '1'  || child.inputType != '1'">DB link
                             </div>
                         </div>
 
                         <div class="row" style="margin-top: 10px">
-                            <div class="col-xl-1"></div>
+                            <div class="col-xl-2"></div>
                             <div class="col-xl-3">
-                                <input class="form-control" placeholder="DB link" [(ngModel)]="child.link" [disabled]="child.urlType != '2'">
+                                <input class="form-control" placeholder="DB link" [(ngModel)]="child.link" [disabled]="child.urlType != '2'  || child.inputType != '1'">
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-top: 20px">
+                            <div class="col-xl-1"></div>
+                            <div class="col-xl-4">
+                                <input type="radio" [(ngModel)]="child.inputType" name="{{child.name + ' inputType'}}" value="2">Input from File
                             </div>
                         </div>
 
