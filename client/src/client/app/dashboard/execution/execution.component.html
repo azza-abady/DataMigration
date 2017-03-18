@@ -28,25 +28,22 @@
         			    </div>
         			    <div class="row">
         			        <div class="col-xl-6">
-                        	    	<select class="form-control">
-                        	        	<option>Comparison 1</option>
-                        	        	<option>Comparison 2</option>
-                        	        	<option>Comparison 3</option>
-                        	        	<option>Comparison 4</option>
-                         	        	<option>Comparison 5</option>
-                         	   	   </select>
+
+                                 <select id="selectedRecon" [(ngModel)]="selectedRecon"  class="form-control" (ngModelChange)="onChange()">
+                                    <option *ngFor="let recon of reconsList" [ngValue]="recon">{{recon}}</option>
+                                   </select>
         			        </div>
 
         			        <div class="col-xl-1"></div>
 
-                            <div class="col-xl-1">
+                            <!-- <div class="col-xl-1">
                                 <button type="button" class="btn btn-success">Execute</button>
                             </div>
                             <div class="col-xl-1" style="margin-left: 20px;">
                                 <button type="button" class="btn btn-primary">Schedule</button>
                             </div>
 
-                            <div class="col-xl-3"></div>
+                            <div class="col-xl-3"></div> -->
         			    </div>
                  	</div>
                  </div>
@@ -58,89 +55,272 @@
 
     <div class="row">
         <div class="col-xl-12">
-            <div class="card card-default">
-                <div class="card-block">
-			<tabset>
+            <div class="card card-default" [hidden]="hideReconPanel">
+                <div class="card-block" >
+                  <div>
+  						<progress class="progress progress-striped active" [value]="progress" max="100"></progress>
+  					</div>
+    <div name="step1" [hidden]="stepOneFlag">
+<div class="row">
+<div class="col-xl-4"></div>
+    <h3>Data Loading</h3>
+      <tabset>
 				<tab *ngFor="let child of childItems; let in=index">
                     <template tabHeading>
                         {{child.name}}
                     </template>
-                    <div class="row" style="margin: 20px;"></div>
+                    	<form action="" ngNoForm *ngIf="child.type != '4'">
+          <div class="row" style="margin-top: 20px">
+              <div class="col-xl-1"></div>
+              <div class="col-xl-4">
+                <input type="radio" [(ngModel)]="queryInputType" name="aaa" value="1">Build your Query
+              </div>
+          </div>
 
-					<form action="" ngNoForm *ngIf="child.type != '4'">
+                <div class="row">
 
-                        <div class="row">
-                            <div class="col-xl-1"></div>
+                            <div class="col-xl-2"></div>
                             <div class="col-xl-4">
-        				        <label>SELECT</label>
+        				        <label>Select Tables</label>
                             </div>
                         </div>
 
                         <div class="row">
-                            <div class="col-xl-1"></div>
+                            <div class="col-xl-2"></div>
 
                             <div class="col-xl-6">
-                                <input class="form-control" placeholder="Columns">
+                              <select multiple="" class="form-control" [disabled]="queryInputType != '1'">
+                       <option>Users</option>
+                       <option>Jobs</option>
+                       <option>Tasks</option>
+                       <option>Sources</option>
+                       <option>Departements</option>
+                   </select>
                             </div>
 
-                            <div class="col-xl-1"></div>
+                            <div class="col-xl-2"></div>
+                        </div>
+
+                        <div class="row" style="margin-top: 20px">
+                            <div class="col-xl-2"></div>
+                            <div class="col-xl-4">
+        				        <label>Select Columns</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xl-2"></div>
+
+                            <div class="col-xl-6">
+                              <select multiple="" class="form-control" [disabled]="queryInputType != '1'">
+                       <option>usr_Id</option>
+                       <option>usr_name</option>
+                       <option>dep_id</option>
+                       <option>dep_name</option>
+                       <option>task_id</option>
+                       <option>task_name</option>
+                       <option>source_id</option>
+                       <option>source_name</option>
+                       <option>job_id</option>
+                       <option>job_name</option>
+                   </select>
+                            </div>
+
+                            <div class="col-xl-2"></div>
+                        </div>
+
+                        <div class="row" style="margin-top: 20px">
+                             <div class="col-xl-2"></div>
+                             <div class="col-xl-4">
+         				        <label>WHERE</label>
+                             </div>
+                         </div>
+
+                         <div class="row">
+                             <div class="col-xl-2"></div>
+
+                             <div class="col-xl-6">
+                                 <input class="form-control" placeholder="Conditions" [disabled]="queryInputType != '1'">
+                             </div>
+
+                             <div class="col-xl-2"></div>
+                         </div>
+
+                        <div class="row" style="margin-top: 20px">
+                            <div class="col-xl-2"></div>
+                            <div class="col-xl-4">
+        				        <label>Select Reference Column</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xl-2"></div>
+                            <div class="col-xl-6">
+                              <select  class="form-control" [disabled]="queryInputType != '1'">
+                       <option>usr_Id</option>
+                       <option>usr_name</option>
+                       <option>dep_id</option>
+                       <option>dep_name</option>
+                       <option>task_id</option>
+                       <option>task_name</option>
+                       <option>source_id</option>
+                       <option>source_name</option>
+                       <option>job_id</option>
+                       <option>job_name</option>
+                      </select>
+                      </div>
+                            <div class="col-xl-2"></div>
                         </div>
 
                         <div class="row" style="margin-top: 20px">
                             <div class="col-xl-1"></div>
-                            <div class="col-xl-4">
-        				        <label>FROM</label>
-                            </div>
-                        </div>
-
+                        <div class="col-xl-4">
+                            <input type="radio" [(ngModel)]="queryInputType" name="aaa" value="2">Write your Query
+                        </div></div>
                         <div class="row">
-                            <div class="col-xl-1"></div>
-
-                            <div class="col-xl-6">
-                                <input class="form-control" placeholder="Tables">
-                            </div>
-
-                            <div class="col-xl-1"></div>
-                        </div>
-
-                        <div class="row" style="margin-top: 20px">
-                            <div class="col-xl-1"></div>
-                            <div class="col-xl-4">
-        				        <label>WHERE</label>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-xl-1"></div>
-
-                            <div class="col-xl-6">
-                                <input class="form-control" placeholder="Conditions">
-                            </div>
-
-                            <div class="col-xl-1"></div>
-                        </div>
-
-                        <div class="row" style="margin-top: 20px">
-                            <div class="col-xl-1"></div>
-                            <div class="col-xl-4">
-        				        <label>VALUES MAPING</label>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-xl-1"></div>
-
-                            <div class="col-xl-6">
-                                <textarea rows="10" cols="50" (focus)="removePlaceholder()" (blur)="addPlaceholder()" #values></textarea>
-                            </div>
-
-                            <div class="col-xl-1"></div>
-                        </div>
+                        <div class="col-xl-2"></div>
+                        <div class="col-xl-6">
+                          <textarea class="form-control" rows="3" [disabled]="queryInputType != '2'"></textarea>
+                        </div></div>
 
 					</form>
 				</tab>
-
 			</tabset>
+    </div>
+<div class="row" hidden="true">
+  <div class="col-xl-6">
+  <label for="exampleInputFile">Source File</label>
+  <input type="file" class="form-control-file" id="exampleInputFile">
+</div>
+</div>
+</div>
+
+
+
+      <div name="step2" [hidden]="stepTwoFlag">
+
+        <div class="row" style="margin-top: 20px">
+            <div class="col-xl-4"></div>
+            <h3>Value Mapping</h3>
+            <div class="col-xl-1"></div>
+            <div class="col-xl-4">
+              <label>Select Data Source</label>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-xl-1"></div>
+ <div class="col-xl-6">
+          <select  class="form-control">
+   <option>Data1</option>
+   <option>Data2</option>
+   <option>Data3</option>
+   <option>Data4</option>
+  </select>
+        </div>
+</div>
+        <div class="row" style="margin-top: 20px">
+            <div class="col-xl-1"></div>
+            <div class="col-xl-4">
+              <label>Select Column</label>
+            </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xl-1"></div>
+           <div class="col-xl-6">
+          <select  class="form-control">
+            <option>table1.column1</option>
+            <option>table1.column2</option>
+            <option>table2.column1</option>
+            <option>table3.column2</option>
+          </select></div>
+        </div>
+        <div class="row" style="margin-top: 20px">
+             <div class="col-xl-1"></div>
+             <div class="col-xl-4">
+        <label>Value</label>
+             </div>
+         </div>
+
+         <div class="row">
+             <div class="col-xl-1"></div>
+
+             <div class="col-xl-6">
+                 <input class="form-control" placeholder="Active = A, Male = M, Female = F">
+             </div>
+
+             <div class="col-xl-1"></div>
+         </div>
+      </div>
+
+
+      <div name="step3" [hidden]="stepThreeFlag">
+  <div class="row" style="margin-top: 20px">
+        <div class="col-xl-4"></div>
+        <h3>Rebort Path</h3>
+        <div class="col-xl-1"></div>
+        <div class="col-xl-4">
+          <label>Rebort Name</label>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-xl-1"></div>
+  <div class="col-xl-6">
+    <input class="form-control" placeholder="Rebort1">
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 20px">
+        <div class="col-xl-1"></div>
+        <div class="col-xl-4">
+          <label>Output Path</label>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-xl-1"></div>
+  <div class="col-xl-6">
+    <label class="custom-file">
+      <input type="file" id="file" class="custom-file-input">
+      <span class="custom-file-control"></span>
+    </label>
+    </div>
+  </div>
+
+      </div>
+
+
+      <div name="step4" [hidden]="stepFourFlag">
+        <div class="row" style="margin-top: 20px">
+              <div class="col-xl-4"></div>
+              <h3>Execution Type</h3>
+              <div class="col-xl-1"></div>
+              <div class="col-xl-4">
+                <input type="radio" [(ngModel)]="queryInputType" name="aaa" value="3">
+                <button type="button" class="btn btn-success" [disabled]="queryInputType != '3'">Execute Now</button>
+              </div>
+          </div>
+
+          <div class="row" style="margin-top: 20px">
+            <div class="col-xl-1"></div>
+            <div class="col-xl-4">
+
+              <input type="radio" [(ngModel)]="queryInputType" name="aaa" value="4">
+              <button type="button" class="btn btn-success" [disabled]="queryInputType != '4'">Schedule Execution</button>
+
+            </div>
+          </div>
+          <div class="row">
+          <div class="col-xl-1"></div>
+<div class="col-xl-4">
+    <input class="form-control" type="datetime-local" [disabled]="queryInputType != '4'" value="2017-03-15T13:45:00" id="example-datetime-local-input">
+  </div>
+      </div>
+</div>
+
+      <div class="row" style="margin-top: 20px">
+            <div class="col-xl-5"></div>
+         <button type="button" class="btn btn-success" (click)="next()">{{nxtBtnName}}</button>
+      </div>
                 </div>
             </div>
         </div>

@@ -66,9 +66,9 @@
                 </div>
               </div>
               <div class="row">
-              <div class="col-xl-9">
+              <div class="col-xl-12">
                     <br/><label>User Privilege</label><br/>
-                    <div class="col-md-3 checkbox">
+                    <div class="col-md-4 checkbox">
                       <label>
                           <input type="checkbox" name="usrMang" [(ngModel)]="user.usrMang" #usrMang="ngModel">
                           <button type="button"  (click)="onAccessLevelBtnClicked()" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret">Access Level</span></button>
@@ -79,7 +79,7 @@
                         </div>
                       </label>
                     </div>
-                      <div class="col-md-3 checkbox">
+                      <div class="col-md-4 checkbox">
                         <label>
                           <input type="checkbox" name="conf" [(ngModel)]="user.conf" #conf="ngModel">
                           <button type="button"  (click)="onConfigurationBtnClicked()" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret">Configuration</span></button>
@@ -90,7 +90,7 @@
                           </div>
                         </label>
                       </div>
-                      <div class="col-md-3 checkbox">
+                      <div class="col-md-4 checkbox">
                           <label>
                             <input type="checkbox" name="exec" [(ngModel)]="user.exec" #exec="ngModel">
                             <button type="button"  (click)="onExecutionBtnClicked()" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret">Execution</span></button>

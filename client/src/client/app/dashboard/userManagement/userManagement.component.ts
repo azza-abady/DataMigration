@@ -37,13 +37,6 @@ confComps=['Comparison 1','Comparison 2','Comparison 3','Comparison 4','Comparis
 
 execComps = ['Comparison 6','Comparison 7','Comparison 8','Comparison 9','Comparison 10'];
 
-/*get selectedRoles():string[]{
-  return this.roles.filter(opt=>opt.checked).map(opt=>opt.value);
-}
-get selectedConfComp():string[]{
-  return this.confComps.filter(opt=>opt.checked).map(opt=>opt.value);
-}*/
-
 
 filterConfgComp(e: any, value: string){
   if(e.target.checked){
